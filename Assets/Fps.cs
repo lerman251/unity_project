@@ -9,7 +9,7 @@ public class Fps : MonoBehaviour
     public float walkSpeed = 6f;
     public float jumpPower = 7f;
     public float gravity = 10f;
-    public float health = 3f;
+   
 
     public float lookSpeed = 2f;
     public float lookXLimit = 90f;

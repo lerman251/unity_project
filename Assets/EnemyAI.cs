@@ -66,10 +66,11 @@ public class EnemyAi : MonoBehaviour
             ///Attack code here
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
             ///End of attack code
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            
         }
     }
     private void ResetAttack()
@@ -86,5 +87,23 @@ public class EnemyAi : MonoBehaviour
         Destroy(gameObject);
     }
     
+    public void OnTriggerEnter(Collider collision)
+    {
+        if(collision.tag == "projectile")
+        {
+        gameObject.transform.parent = collision.gameObject.transform;
+        Destroy(GetComponent<Rigidbody>());
+        GetComponent<SphereCollider>().enabled = false;
+        }
+        if(collision.tag == "Player")
+        {
+        var healthComponent = GetComponent<Health>();
+        if(healthComponent != null)
+        {
+            healthComponent.TakeDamage(1);
+        }
+        }
+    }
+
     
 }
