@@ -6,10 +6,12 @@ public class Fps : MonoBehaviour
 {
     public Camera playerCamera;
     public float runSpeed = 12f;
+
     public float walkSpeed = 6f;
     public float jumpPower = 7f;
     public float gravity = 10f;
    
+
 
     public float lookSpeed = 2f;
     public float lookXLimit = 90f;
@@ -59,7 +61,9 @@ public class Fps : MonoBehaviour
             if (!characterController.isGrounded)
             {
 
+
                moveDirection.y -= gravity * Time.deltaTime; 
+
             }
 
 
