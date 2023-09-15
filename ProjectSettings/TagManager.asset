@@ -11,13 +11,8 @@ TagManager:
   - Ground
   - Water
   - UI
-
-  - Player
+  - player
   - 
-
-  - enemy
-  - bullets
-
   - 
   - 
   - 

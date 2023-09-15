@@ -16,6 +16,7 @@ public class EnemyAi : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    public Rigidbody clones;
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -61,17 +62,25 @@ public class EnemyAi : MonoBehaviour
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        
         if (!alreadyAttacked)
         {
+            
             ///Attack code here
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
             rb.AddForce(transform.up * 4f, ForceMode.Impulse);
             ///End of attack code
             alreadyAttacked = true;
+            rb = clones;
+            Invoke("DestroyRb",0.5f);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             
         }
+    }
+    private void DestroyRb()
+    {
+        Destroy(clones);
     }
     private void ResetAttack()
     {

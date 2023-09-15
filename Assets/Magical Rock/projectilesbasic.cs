@@ -91,8 +91,9 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
-    Invoke("Shoot", timeBetweenShots);
-
+    {Invoke("Shoot", timeBetweenShots);
+    }
+    Destroy(currentBullet,5f);
  }
     private void ResetShot()
     {

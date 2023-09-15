@@ -12958,7 +12958,7 @@ GameObject:
   - component: {fileID: 1789747205}
   - component: {fileID: 1789747210}
   m_Layer: 7
-  m_Name: Sphere
+  m_Name: fireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13849,8 +13849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 586880724}
-  walkSpeed: 6
   runSpeed: 12
+  walkSpeed: 6
   jumpPower: 4
   gravity: 10
   lookSpeed: 2
