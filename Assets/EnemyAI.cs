@@ -13,11 +13,11 @@ public class EnemyAi : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
     //Attacking
-    public float shootForce, upwardForce;
+    public float shootForce = 12f, upwardForce = 4f;
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
-    public Rigidbody clones;
+    
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -70,19 +70,15 @@ public class EnemyAi : MonoBehaviour
             ///Attack code here
             GameObject rb = Instantiate(projectile, transform.position, Quaternion.identity);
             
-            rb.GetComponent<Rigidbody>().AddForce(transform.forward *15f, ForceMode.Impulse);
-            rb.GetComponent<Rigidbody>().AddForce(transform.up * 4f, ForceMode.Impulse);
+            rb.GetComponent<Rigidbody>().AddForce(transform.forward *shootForce, ForceMode.Impulse);
+            rb.GetComponent<Rigidbody>().AddForce(transform.up * upwardForce, ForceMode.Impulse);
             ///End of attack code
             alreadyAttacked = true;
-            Destroy(rb,2);
+            Destroy(rb,15);
             
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             
         }
-    }
-    private void DestroyRb()
-    {
-        Destroy(clones);
     }
     private void ResetAttack()
     {
