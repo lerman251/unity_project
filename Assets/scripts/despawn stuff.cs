@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class despawnstuff : MonoBehaviour
 {
-    public GameObject fireBallClones;
+    private void OnCollisionEnter3D(Collision3D collision) 
+    {
+        if (collision.gameObject.TryGetComponent<EnemyAI>(out Enemy enemyComponent))
+        {
+            enemyComponent.TakeDamage(1);
+        }
+
+        Destroy(gameObject);
+
+    }
     
 }
