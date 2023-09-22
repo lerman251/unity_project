@@ -7,7 +7,7 @@ public class EnemyAi : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-    public float health;
+    public float health, maxHealth = 3f;
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -25,6 +25,19 @@ public class EnemyAi : MonoBehaviour
     {
         player = GameObject.Find("Twelf").transform;
         agent = GetComponent<NavMeshAgent>();
+    }
+    private void Start()
+    {
+        health = maxHealth;
+    }
+    public void TakeDamage(float damageAmount)
+    {
+        health -= damageAmount;
+
+        if(health <= 0) 
+        {
+            Destroy(gameObject);
+        }
     }
     private void Update()
     {
