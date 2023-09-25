@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class despawnstuff : MonoBehaviour
 {
-    private void OnCollisionEnter3D(Collision3D collision) 
+    private void OnCollisionEnter(Collider collision) 
     {
-        if (collision.gameObject.TryGetComponent<EnemyAI>(out Enemy enemyComponent))
+        if (collision.gameObject.TryGetComponent<EnemyAI>(out Steve SteveComponent))
         {
-            enemyComponent.TakeDamage(1);
+            SteveComponent.TakeDamage(1);
         }
 
         Destroy(gameObject);
