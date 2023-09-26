@@ -85,7 +85,14 @@ public class Fps : MonoBehaviour
 
         #endregion
 
-        
+        public void TakeDamage(int amount)
+        {
+            health -= amount;
+        }
+        public void DealDamage()
+        {
+            
+        }
 
     }
 }

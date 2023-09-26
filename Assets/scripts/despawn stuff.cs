@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class despawnstuff : MonoBehaviour
+
+
+
 {
-    private void OnCollisionEnter(Collider collision) 
-    {
-        if (collision.gameObject.TryGetComponent<EnemyAI>(out Steve SteveComponent))
-        {
-            SteveComponent.TakeDamage(1);
-        }
+    public float health;
+    public float attack;
 
-        Destroy(gameObject);
-
-    }
+    
     
 }

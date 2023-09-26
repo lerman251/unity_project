@@ -30,15 +30,7 @@ public class EnemyAi : MonoBehaviour
     {
         health = maxHealth;
     }
-    public void TakeDamage(float damageAmount)
-    {
-        health -= damageAmount;
 
-        if(health <= 0) 
-        {
-            Destroy(gameObject);
-        }
-    }
     private void Update()
     {
         //Check for sight and attack range
@@ -96,33 +88,6 @@ public class EnemyAi : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
-    }
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-    
-    public void OnTriggerEnter(Collider collision)
-    {
-        if(collision.tag == "projectile")
-        {
-        gameObject.transform.parent = collision.gameObject.transform;
-        Destroy(GetComponent<Rigidbody>());
-        GetComponent<SphereCollider>().enabled = false;
-        }
-        if(collision.tag == "Player")
-        {
-        var healthComponent = GetComponent<Health>();
-        if(healthComponent != null)
-        {
-            healthComponent.TakeDamage(1);
-        }
-        }
     }
 
     
