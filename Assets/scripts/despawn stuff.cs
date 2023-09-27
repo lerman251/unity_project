@@ -8,9 +8,11 @@ public class despawnstuff : MonoBehaviour
 
 
 {
-    public float health;
-    public float attack;
-
+   
+    public void dealDamage(float damage)
+    {
+        TakeDamage(damage);
+    }
     
     
 }

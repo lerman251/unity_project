@@ -10,7 +10,8 @@ public class Fps : MonoBehaviour
     public float walkSpeed = 6f;
     public float jumpPower = 7f;
     public float gravity = 10f;
-   
+    public float health;
+    public float maxHealth = 10;
 
 
     public float lookSpeed = 2f;
@@ -28,6 +29,7 @@ public class Fps : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -68,9 +70,6 @@ public class Fps : MonoBehaviour
 
         #endregion
 
-
-
-
         #region Handles Rotation
         characterController.Move(moveDirection * Time.deltaTime);
 
@@ -85,14 +84,9 @@ public class Fps : MonoBehaviour
 
         #endregion
 
-        public void TakeDamage(int amount)
+    }
+    public void TakeDamage(int amount)
         {
             health -= amount;
         }
-        public void DealDamage()
-        {
-            
-        }
-
-    }
 }
