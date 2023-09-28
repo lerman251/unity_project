@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyAi : MonoBehaviour
 {
+    public Fps script;
+
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
@@ -29,6 +31,12 @@ public class EnemyAi : MonoBehaviour
     private void Start()
     {
         health = maxHealth;
+    }
+
+    public void dealDamage(float damage)
+    {
+        
+        script.TakeDamage(damage);
     }
 
     private void Update()

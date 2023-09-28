@@ -541,6 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66382743}
   - component: {fileID: 66382742}
+  - component: {fileID: 66382744}
   - component: {fileID: 66382741}
   - component: {fileID: 66382740}
   m_Layer: 0
@@ -583,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bec64c494300248805031dfc5747b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script: {fileID: 0}
   agent: {fileID: 66382742}
   player: {fileID: 1937165779}
   whatIsGround:
@@ -641,6 +643,20 @@ Transform:
   - {fileID: 638561072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66382744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66382739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c8ab92b3c435a4293758dd11aa065a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 1937165778}
+  damageAmount: 2
 --- !u!1001 &67008260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4000,8 +4016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81722cd8b09637b4fb82422e8fde7fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  attack: 0
+  script: {fileID: 0}
 --- !u!122 &379812851
 Halo:
   m_ObjectHideFlags: 0
@@ -9395,6 +9410,7 @@ GameObject:
   - component: {fileID: 877862620}
   - component: {fileID: 877862622}
   - component: {fileID: 877862621}
+  - component: {fileID: 877862623}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
@@ -9467,6 +9483,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877862619}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &877862623
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877862619}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.9999999
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &896678519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a39725da2f6e50a4d888e2e3bdbb0cc0, type: 3}
@@ -17951,6 +17990,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfb915843a9ff74d9bea72ce38a0a89, type: 3}
+--- !u!1 &1775744662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775744664}
+  - component: {fileID: 1775744663}
+  m_Layer: 0
+  m_Name: despawnStuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1775744663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775744662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c8ab92b3c435a4293758dd11aa065a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 1937165778}
+  damageAmount: 0
+--- !u!4 &1775744664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775744662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.295229, y: 8.373318, z: 31.386335}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1777848628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19421,6 +19506,8 @@ MonoBehaviour:
   walkSpeed: 6
   jumpPower: 4
   gravity: 10
+  health: 0
+  maxHealth: 10
   lookSpeed: 2
   lookXLimit: 90
   canMove: 1
@@ -21212,3 +21299,4 @@ SceneRoots:
   - {fileID: 1348338060}
   - {fileID: 119856893}
   - {fileID: 379812856}
+  - {fileID: 1775744664}
