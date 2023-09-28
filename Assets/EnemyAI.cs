@@ -32,13 +32,14 @@ public class EnemyAi : MonoBehaviour
     {
         health = maxHealth;
     }
-
-    public void dealDamage(float damage)
+    public void TakeDamage(float amount)
     {
-        
-        script.TakeDamage(damage);
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
-
     private void Update()
     {
         //Check for sight and attack range

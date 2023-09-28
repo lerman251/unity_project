@@ -90,8 +90,9 @@ public class Fps : MonoBehaviour
             health -= amount;
         if (health <= 0)
         {
-            Destroy(gameObject);
+           
         }
         }
+    
         
 }

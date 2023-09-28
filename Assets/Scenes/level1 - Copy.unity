@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 66382740}
   m_Layer: 0
   m_Name: Steve
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  health: 3.25
+  health: 8
   maxHealth: 3
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
@@ -3996,7 +3996,6 @@ GameObject:
   - component: {fileID: 379812853}
   - component: {fileID: 379812852}
   - component: {fileID: 379812851}
-  - component: {fileID: 379812850}
   m_Layer: 7
   m_Name: fireBall(Clone)
   m_TagString: Untagged
@@ -4004,19 +4003,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &379812850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379812849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81722cd8b09637b4fb82422e8fde7fd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  script: {fileID: 0}
 --- !u!122 &379812851
 Halo:
   m_ObjectHideFlags: 0
@@ -4890,6 +4876,7 @@ GameObject:
   - component: {fileID: 449716415}
   - component: {fileID: 449716414}
   - component: {fileID: 449716413}
+  - component: {fileID: 449716419}
   m_Layer: 0
   m_Name: enemyBullet
   m_TagString: Untagged
@@ -5022,6 +5009,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449716419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449716412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c8ab92b3c435a4293758dd11aa065a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 1937165778}
+  damageAmount: 2
 --- !u!1001 &451757990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17990,52 +17991,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bfb915843a9ff74d9bea72ce38a0a89, type: 3}
---- !u!1 &1775744662
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1775744664}
-  - component: {fileID: 1775744663}
-  m_Layer: 0
-  m_Name: despawnStuff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1775744663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775744662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29c8ab92b3c435a4293758dd11aa065a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  script: {fileID: 1937165778}
-  damageAmount: 0
---- !u!4 &1775744664
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775744662}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.295229, y: 8.373318, z: 31.386335}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1777848628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18310,6 +18265,7 @@ GameObject:
   - component: {fileID: 1789747206}
   - component: {fileID: 1789747205}
   - component: {fileID: 1789747210}
+  - component: {fileID: 1789747211}
   m_Layer: 7
   m_Name: fireBall
   m_TagString: projectile
@@ -18442,6 +18398,20 @@ Halo:
     serializedVersion: 2
     rgba: 4278208998
   m_Size: 0.25
+--- !u!114 &1789747211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789747204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f042a516fb79c34baf2faf57be3f1aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 66382741}
+  fireballDamageAmount: 4
 --- !u!1001 &1797099693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19456,6 +19426,7 @@ GameObject:
   - component: {fileID: 1937165779}
   - component: {fileID: 1937165778}
   - component: {fileID: 1937165777}
+  - component: {fileID: 1937165780}
   m_Layer: 6
   m_Name: Twelf
   m_TagString: Player
@@ -19520,7 +19491,7 @@ Transform:
   m_GameObject: {fileID: 1937165776}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 5.35, y: 7.5, z: 32.03}
+  m_LocalPosition: {x: 17.29, y: 1.14, z: 32.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19528,6 +19499,33 @@ Transform:
   - {fileID: 586880726}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!54 &1937165780
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937165776}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1939067288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 357387220f229a64f8e35720e9d0d121, type: 3}
@@ -21299,4 +21297,3 @@ SceneRoots:
   - {fileID: 1348338060}
   - {fileID: 119856893}
   - {fileID: 379812856}
-  - {fileID: 1775744664}

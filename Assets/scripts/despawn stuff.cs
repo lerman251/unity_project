@@ -23,6 +23,5 @@ public class despawnStuff : MonoBehaviour
     {
         script.TakeDamage(damage);
     }
-    
-    
+
 }
