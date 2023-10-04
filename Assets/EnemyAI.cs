@@ -9,7 +9,7 @@ public class EnemyAi : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-    public float health, maxHealth = 3f;
+    public float health, maxHealth = 10f;
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
