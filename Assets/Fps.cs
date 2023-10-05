@@ -63,6 +63,7 @@ public class Fps : MonoBehaviour
 
 
                moveDirection.y -= gravity * Time.deltaTime; 
+
             }
 
 
