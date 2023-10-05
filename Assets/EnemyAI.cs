@@ -4,18 +4,22 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyAi : MonoBehaviour
 {
+    public Fps script;
+
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-    public float health;
+    public float health, maxHealth = 10f;
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
     //Attacking
+    public float shootForce = 12f, upwardForce = 4f;
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -23,6 +27,18 @@ public class EnemyAi : MonoBehaviour
     {
         player = GameObject.Find("Twelf").transform;
         agent = GetComponent<NavMeshAgent>();
+    }
+    private void Start()
+    {
+        health = maxHealth;
+    }
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
     private void Update()
     {
@@ -61,14 +77,19 @@ public class EnemyAi : MonoBehaviour
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        
         if (!alreadyAttacked)
         {
+            
             ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+            GameObject rb = Instantiate(projectile, transform.position, Quaternion.identity);
+            
+            rb.GetComponent<Rigidbody>().AddForce(transform.forward *shootForce, ForceMode.Impulse);
+            rb.GetComponent<Rigidbody>().AddForce(transform.up * upwardForce, ForceMode.Impulse);
             ///End of attack code
             alreadyAttacked = true;
+            Destroy(rb,15);
+            
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             
         }
@@ -76,33 +97,6 @@ public class EnemyAi : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
-    }
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-    
-    public void OnTriggerEnter(Collider collision)
-    {
-        if(collision.tag == "projectile")
-        {
-        gameObject.transform.parent = collision.gameObject.transform;
-        Destroy(GetComponent<Rigidbody>());
-        GetComponent<SphereCollider>().enabled = false;
-        }
-        if(collision.tag == "Player")
-        {
-        var healthComponent = GetComponent<Health>();
-        if(healthComponent != null)
-        {
-            healthComponent.TakeDamage(1);
-        }
-        }
     }
 
     

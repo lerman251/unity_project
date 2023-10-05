@@ -82,7 +82,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     bulletsLeft--;
     bulletsShot++;
-
+    
 
     if (allowInvoke)
     {
@@ -91,7 +91,10 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
-    Invoke("Shoot", timeBetweenShots);
+    {Invoke("Shoot", timeBetweenShots);
+    }
+    
+    Destroy(currentBullet,15f);
 
  }
     private void ResetShot()
@@ -109,4 +112,5 @@ public class NewBehaviourScript : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
+    
 }
